@@ -508,53 +508,20 @@ DELIMITER ;
 -- Fonksiyonlar
 
 DELIMITER //
-CREATE TRIGGER ecz_ilacStokKontrol 
-BEFORE INSERT on recete_ilaclari FOR EACH ROW 
+CREATE FUNCTION ilacStok(
+	fBarkodNo varchar(250)
+) 
+RETURNS Int DETERMINISTIC
 BEGIN
-    declare tBarkodNo int;   
-    declare tStokMiktarı int;   
-    declare tDoz int;   
-
-    declare hatamesaj varchar(250);
-
-    set tBarkodNo = NEW.BarkodNo;
-    set tDoz = NEW.Doz; 
-                 
-    
-    select StokMiktarı into tStokMiktarı  
-    from ilaclar  where BarkodNo = tBarkodNo;
-
-    IF (tDoz > tStokMiktarı )  THEN
-        set hatamesaj = CONCAT('hoop! ', tDoz, 'adet satılmak isteniyor, ancak ', tStokMiktarı, ' adet var!');
-        SIGNAL SQLSTATE '45000'  SET MESSAGE_TEXT = hatamesaj;
-    END IF;
-    
-END; //
+DECLARE stk Int; 
+START TRANSACTION;
+    select i.StokMiktarı into stk  
+    from ilaclar i  where i.BarkodNo = fBarkodNo;
+COMMIT;
+RETURN stk;
+END  //
 DELIMITER ;
 
-
-DELIMITER //
-CREATE TRIGGER ecz_ilac_stok_azalt 
-AFTER INSERT on recete_ilaclari FOR EACH ROW 
-BEGIN
-    declare tBarkodNo  int;   
-    declare tStokMiktarı  int;  
-
-    declare sid int;  
-    declare tDoz  int;   
-
-    set tBarkodNo = NEW.BarkodNo ;
-    set sid = NEW.ID ;
-    set tDoz = NEW.Doz;
-    
-    select StokMiktarı into tStokMiktarı  
-    from ilaclar  where BarkodNo = tBarkodNo;
-    
-    update ilaclar set StokMiktarı  = StokMiktarı - tDoz 
-    where BarkodNo = tBarkodNo;
-
-END; //
-DELIMITER ;
 
 
 
