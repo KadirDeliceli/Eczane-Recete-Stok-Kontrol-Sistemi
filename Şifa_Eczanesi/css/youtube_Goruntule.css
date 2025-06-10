@@ -1,0 +1,239 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('resimler/youtube_arka.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 960px;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: black;
+    padding: 12px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-bottom: 20px; /* Butonun altına boşluk ekledim */
+}
+
+.btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.1);
+}
+
+.film-afis {
+    width: 30%;
+    min-width: 200px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.film-afis img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    display: block;
+    box-sizing: border-box;
+}
+
+.video-container {
+    width: 65%;
+    min-width: 300px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.film-fragman {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    background-color: #222; /* Küçük resim yüklenene kadar koyu arka plan */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.film-fragman img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.film-fragman a.btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 204, 0, 0.8);
+    color: black;
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.film-fragman a.btn:hover {
+    background-color: #e6b800;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-container h2 {
+    color: #ffcc00;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.video-container p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.video-container b {
+    color: #ffcc00;
+}
+
+.video-container a.btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .film-afis {
+        width: 80%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .video-container {
+        width: 95%;
+    }
+}
+
+.film-afis {
+    width: 30%; /* Afiş için ayrılan genişlik */
+    min-width: 150px; /* Minimum genişlik */
+    margin-right: 20px; /* Afiş ile video bilgileri arasında boşluk */
+    margin-bottom: 20px; /* Alt boşluk */
+}
+
+.film-afis img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    display: block; /* Altındaki olası boşluğu engeller */
+}
+
+.film-fragman-container {
+    width: 100%; /* Video konteynerinin tam genişliği */
+    margin-bottom: 20px; /* Alt boşluk */
+}
+
+.film-fragman {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* İsteğe bağlı maksimum genişlik */
+    height: auto;
+    aspect-ratio: 16 / 9; /* 16:9 oranını koru */
+    background-color: #222; /* Yüklenirken arka plan rengi */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Alt boşluk */
+}
+
+.film-fragman img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.film-fragman a.fragman-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 204, 0, 0.8);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    z-index: 1;
+}
+
+.film-fragman a.fragman-btn:hover {
+    background-color: #e6b800;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.film-bilgileri {
+    flex-grow: 1; /* Kalan alanı doldurur */
+}
+
+.film-bilgileri p {
+    margin-bottom: 5px;
+}
+
+/* Puan ve IMDb butonu için stil */
+.puan-imdb {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.puan-imdb .btn {
+    margin-left: 10px;
+}
