@@ -1,6 +1,7 @@
 🏥 💊 Şifa Eczanesi Reçete ve Stok Takip Sistemi  
 **Prescription & Stock Tracking System for Şifa Pharmacy**
 
+
 📌 Proje Açıklaması | Project Description
 
 Bu proje, **Şifa Eczanesi** için geliştirilmiş bir reçete ve ilaç stok yönetim sistemidir.  
